@@ -1,5 +1,58 @@
-import React from "react";
+import React from 'react';
 
-function useFormValidation() {}
+function useFormValidation(initialState, validate) {
+  const [values, setValues] = React.useState(initialState);
+  const [errors, setErrors] = React.useState({});
+  const [isSubmitting, setSubmitting] = React.useState(false);
 
-export default useFormValidation;
+  React.useEffect(() => {
+    if (isSubmitting) {
+      const noErrors = Object.keys(errors).length === 0;
+
+      if (noErrors) {
+        console.log('Authenticated');
+
+        setSubmitting(false);
+      } else {
+        setSubmitting(false);
+      }
+    }
+  }, [errors]);
+
+  function handleChange(event) {
+    event.persist();
+
+    setValues((previousValues) => ({
+      ...previousValues,
+      [event.target.name]: event.target.value
+    }));
+  }
+
+  function handleBlur() {
+    const validationErrors = validate(values);
+
+    setErrors(validationErrors);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const validationErrors = validate(values);
+
+    setErrors(validationErrors);
+    setSubmitting(true);
+
+    console.log({ values });
+  }
+
+  return {
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    values
+  };
+}
+
+export { useFormValidation };

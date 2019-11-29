@@ -7,7 +7,7 @@ import CreateLink from './Link/CreateLink';
 import ForgotPassword from './Auth/ForgotPassword';
 import LinkDetail from './Link/LinkDetail';
 import LinkList from './Link/LinkList';
-import Login from './Auth/Login';
+import { Login } from './Auth/Login';
 import SearchLinks from './Link/SearchLinks';
 
 function App() {
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };
