@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
 import { FirebaseContext } from '../firebase';
 
-function Header() {
+function HeaderComponent() {
   const { user, firebase } = React.useContext(FirebaseContext);
 
   return (
@@ -51,4 +51,6 @@ function Header() {
   );
 }
 
-export default withRouter(Header);
+const Header = withRouter(HeaderComponent);
+
+export { Header };

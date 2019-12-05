@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import Header from './Header';
-
-import CreateLink from './Link/CreateLink';
+import { Header } from './Header';
+import { CreateLink } from './Link/CreateLink';
 import { ForgotPassword } from './Auth/ForgotPassword';
 import LinkDetail from './Link/LinkDetail';
-import LinkList from './Link/LinkList';
+import { LinkList } from './Link/LinkList';
 import { Login } from './Auth/Login';
 import SearchLinks from './Link/SearchLinks';
 import { useAuth } from './Auth/useAuth';
