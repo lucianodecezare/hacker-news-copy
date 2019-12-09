@@ -19,8 +19,9 @@ function LinkItemComponent({ showCount, link, index, history }) {
         const previousVotes = vote.data().votes;
         const newVote = { votedBy: { id: user.uid, name: user.displayName } };
         const updatedVote = [...previousVotes, newVote];
+        const voteCount = updatedVote.length;
 
-        voteRef.update({ votes: updatedVote });
+        voteRef.update({ votes: updatedVote, voteCount });
       }
     }
   }
@@ -46,7 +47,7 @@ function LinkItemComponent({ showCount, link, index, history }) {
           {link.description} <span className="link">({getDomain(link.url)})</span>
         </div>
         <div className="f6 lh-copy gray">
-          {link.votes.length} votes by {link.postedBy.name} {distanceInWordsToNow(link.created)}
+          {link.voteCount} votes by {link.postedBy.name} {distanceInWordsToNow(link.created)}
           {' | '}
           <Link to={`/link/${link.id}`}>
             {link.comments.length > 0 ? `${link.comments.length} comments` : 'discuss'}
