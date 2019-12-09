@@ -7,7 +7,7 @@ import { ForgotPassword } from './Auth/ForgotPassword';
 import LinkDetail from './Link/LinkDetail';
 import { LinkList } from './Link/LinkList';
 import { Login } from './Auth/Login';
-import SearchLinks from './Link/SearchLinks';
+import { SearchLinks } from './Link/SearchLinks';
 import { useAuth } from './Auth/useAuth';
 import { firebase, FirebaseContext } from './../firebase';
 
